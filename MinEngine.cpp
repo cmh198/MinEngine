@@ -145,6 +145,64 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+    case WM_MOUSEWHEEL:
+    {
+        SetWindowText(hWnd, L"MouseWheel");
+    }
+    break;
+    case WM_SIZE:
+    {
+        SetWindowText(hWnd, L"Size changed");
+    }
+    break;
+    case WM_MOVE:
+    {
+        SetWindowText(hWnd, L"Moving");
+        //window text box
+    }
+    break;
+    case WM_LBUTTONDOWN:
+    {
+        SetWindowText(hWnd, L"Left Button Click");
+        //window text box
+    }
+    break;
+    case WM_RBUTTONDOWN:
+    {
+        SetWindowText(hWnd, L"Right Button Click");
+        //window text box
+    }
+    break;
+    case WM_MBUTTONDOWN:
+    {
+        SetWindowText(hWnd, L"Middle Button Down(휠클릭)");
+        //window text box
+    }
+    break;
+    case WM_KEYDOWN:
+    {
+        SetWindowText(hWnd, L"Key Down");
+        //window text box
+    }
+    break;
+    case WM_KEYUP:
+    {
+        SetWindowText(hWnd, L"Key UP");
+        //window text box
+    }
+    break;
+    case WM_MOUSELEAVE:
+    {
+        SetWindowText(hWnd, L"MouseLEAVE");
+        //window text box
+    }
+    break;
+    case WM_MOUSELAST:
+    {
+        SetWindowText(hWnd, L"MOUSELAST");
+        //window text box
+    }
+    break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
@@ -159,6 +217,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+    
+    
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
