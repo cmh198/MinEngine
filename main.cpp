@@ -4,6 +4,11 @@
 #include "framework.h"
 #include "MinEngine.h"
 
+#include "..\MinEngine_SOURCE\minApplication.h"
+
+min::Application app;
+
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -25,6 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
@@ -42,8 +48,26 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+
+    while (true)
+    {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            if (msg.message == WM_QUIT)
+                break;
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else {
+            app.Run();
+        }
+    }
+
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    /*while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
@@ -52,7 +76,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    return (int) msg.wParam;
+    return (int) msg.wParam;*/
 }
 
 
@@ -103,6 +127,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   app.Initialize(hWnd);
+
+
    if (!hWnd)
    {
       return FALSE;
@@ -145,71 +172,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
-    case WM_MOUSEWHEEL:
-    {
-        SetWindowText(hWnd, L"MouseWheel");
-    }
-    break;
-    case WM_SIZE:
-    {
-        SetWindowText(hWnd, L"Size changed");
-    }
-    break;
-    case WM_MOVE:
-    {
-        SetWindowText(hWnd, L"Moving");
-        //window text box
-    }
-    break;
-    case WM_LBUTTONDOWN:
-    {
-        SetWindowText(hWnd, L"Left Button Click");
-        //window text box
-    }
-    break;
-    case WM_RBUTTONDOWN:
-    {
-        SetWindowText(hWnd, L"Right Button Click");
-        //window text box
-    }
-    break;
-    case WM_MBUTTONDOWN:
-    {
-        SetWindowText(hWnd, L"Middle Button Down(휠클릭)");
-        //window text box
-    }
-    break;
-    case WM_KEYDOWN:
-    {
-        SetWindowText(hWnd, L"Key Down");
-        //window text box
-    }
-    break;
-    case WM_KEYUP:
-    {
-        SetWindowText(hWnd, L"Key UP");
-        //window text box
-    }
-    break;
-    case WM_MOUSELEAVE:
-    {
-        SetWindowText(hWnd, L"MouseLEAVE");
-        //window text box
-    }
-    break;
-    case WM_MOUSELAST:
-    {
-        SetWindowText(hWnd, L"MOUSELAST");
-        //window text box
-    }
-    break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            //test
-            Rectangle(hdc, 100, 100, 200, 200);
 
             EndPaint(hWnd, &ps);
         }
