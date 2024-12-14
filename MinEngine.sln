@@ -5,9 +5,9 @@ VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "MinEngine.vcxproj", "{E0A3F337-73EC-4BA8-A363-F89DBA9DB7B9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinEngine_SOURCE", "..\MinEngine_SOURCE\MinEngine_SOURCE.vcxitems", "{B27C82D9-BBB1-4220-A447-F9F3DA406E0A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinEngine_Window", "MinEngine_Window\MinEngine_Window.vcxproj", "{3A8831D2-782E-4D03-9FD2-5F0D55A02E59}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinEngine_Window", "..\MinEngine_Window\MinEngine_Window.vcxproj", "{3A8831D2-782E-4D03-9FD2-5F0D55A02E59}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinEngine_SOURCE", "MinEngine_SOURCE\MinEngine_SOURCE.vcxitems", "{B27C82D9-BBB1-4220-A447-F9F3DA406E0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,8 +38,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{3a8831d2-782e-4d03-9fd2-5f0d55a02e59}*SharedItemsImports = 4
-		..\MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{b27c82d9-bbb1-4220-a447-f9f3da406e0a}*SharedItemsImports = 9
-		..\MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{e0a3f337-73ec-4ba8-a363-f89dba9db7b9}*SharedItemsImports = 4
+		MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{3a8831d2-782e-4d03-9fd2-5f0d55a02e59}*SharedItemsImports = 4
+		MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{b27c82d9-bbb1-4220-a447-f9f3da406e0a}*SharedItemsImports = 9
+		MinEngine_SOURCE\MinEngine_SOURCE.vcxitems*{e0a3f337-73ec-4ba8-a363-f89dba9db7b9}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "MinEngine.h"
 
-#include "..\MinEngine_SOURCE\minApplication.h"
+#include "MinEngine_SOURCE\minApplication.h"
 
 min::Application app;
 
