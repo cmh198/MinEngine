@@ -1,5 +1,5 @@
 #pragma once
-#include <CommonInclude.h>
+#include "minGameObject.h"
 
 namespace min
 {
@@ -9,7 +9,7 @@ namespace min
 		Application();
 		~Application();
 
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd,UINT width,UINT height);
 		void Run();
 
 		void Update();
@@ -19,9 +19,13 @@ namespace min
 	private:
 		HWND mHwnd;
 		HDC mHdc;
+		
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
 
-		float mSpeed;
-		float mX;
-		float mY;
+		UINT mWidth;
+		UINT mHeight;
+
+		GameObject mPlayer;
 	};
 }

@@ -15,9 +15,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)minApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minTime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minTime.h" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,9 @@
 #include "minApplication.h"
-
+#include "minInput.h"
+#include "minTime.h"
 namespace min
 {
-	Application::Application() :mHwnd(nullptr), mHdc(nullptr), mSpeed(0.0f), mX(0.0f), mY(0.0f)
+	Application::Application() :mHwnd(nullptr), mHdc(nullptr),mWidth(0),mHeight(0),mBackHdc(NULL),mBackBitmap(NULL)
 	{
 	}
 
@@ -12,10 +13,43 @@ namespace min
 	}
 
 	//윈도우로부터 윈도우 핸들러 받기
-	void Application::Initialize(HWND hwnd)
+	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
+
+		//더블 버퍼링
+
+		//현재 Client 영역
+		RECT rect = { 0, 0, width, height };
+
+		//현재 윈도우의 크기가 클라이언트의 영역이 되도록 크기 조정
+		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+
+		//윈도우 너비와 높이
+		mWidth = rect.right - rect.left;
+		mHeight = rect.bottom - rect.top;
+
+		// 얻어온 사각형의 정보로 윈도우 사이즈 세팅
+		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
+		
+		//보여주기
+		ShowWindow(mHwnd, true);
+
+		//윈도우 해상도에 맞는 백버퍼(도화지)생성
+		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
+
+		//백버퍼를 가르킬 DC생성
+		mBackHdc = CreateCompatibleDC(mHdc);
+
+		// 비트맵 선택
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
+		DeleteObject(oldBitmap);
+
+		mPlayer.SetPosition(0, 0);
+		Input::Initialize();
+		Time::Initialize();
 	}
 
 	void Application::Run()
@@ -27,31 +61,10 @@ namespace min
 
 	void Application::Update()
 	{
-		mSpeed += 0.01f;
+		Input::Update();
+		Time::Update();
 
-		// 내가 오른쪾 키를 입력받았다면
-		// x 좌표가 플러스
-		// 왼쪽 -> x 가 마이너스
-		// 위아래는 y가 플러스 마이너스
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		{
-			mX -= 0.01f;
-		}
-
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		{
-			mX += 0.01f;
-		}
-
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
-		{
-			mY -= 0.01f;
-		}
-
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-		{
-			mY += 0.01f;
-		}
+		mPlayer.Update();
 	}
 	void Application::LateUpdate()
 	{
@@ -60,21 +73,13 @@ namespace min
 
 	void Application::Render()
 	{
-		//파랑 브러쉬 생성
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		Time::Render(mBackHdc);
+		mPlayer.Render(mBackHdc);
 
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(mHdc, blueBrush);
+		// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
+		BitBlt(mHdc, 0, 0, mWidth, mHeight,mBackHdc,0,0,SRCCOPY);
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(mHdc, redPen);
-		SelectObject(mHdc, oldPen);
-
-		Rectangle(mHdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
-
-		SelectObject(mHdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
 	}
 }
 
