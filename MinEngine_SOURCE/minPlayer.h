@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "minGameObject.h"
+#include "Bullet.h"
 
 namespace min {
 	class Player:public GameObject {
@@ -17,9 +18,13 @@ namespace min {
 			mX = x;
 			mY = y;
 		}
-		float GetPositionX() override { return mX; }
-		float GetPositionY() override { return mY; }
+		float GetPositionX() override { return mX+200; }
+		float GetPositionY() override { return mY+150; }
+		std::vector<Bullet*>& GetBullets() { return bullets; }
+
+
 	private:
-		
+		std::vector<Bullet*> bullets;
+		void Shoot();
 	};
 }

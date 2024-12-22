@@ -1,6 +1,7 @@
 #include "minApplication.h"
 #include "minInput.h"
 #include "minTime.h"
+
 namespace min
 {
 	Application::Application() :mHwnd(nullptr), mHdc(nullptr),mWidth(0),mHeight(0),mBackHdc(NULL),mBackBitmap(NULL)
@@ -67,6 +68,8 @@ namespace min
 
 		mPlayer.Update();
 		mMonster.Update();
+
+
 	}
 	void Application::LateUpdate()
 	{
@@ -84,5 +87,8 @@ namespace min
 		BitBlt(mHdc, 0, 0, mWidth, mHeight,mBackHdc,0,0,SRCCOPY);
 
 	}
+
+	
+
 }
 

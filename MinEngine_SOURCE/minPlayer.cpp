@@ -1,6 +1,8 @@
 #include "minPlayer.h"
 #include "minInput.h"
 #include "minTime.h"
+#include "Bullet.h"
+
 namespace min {
 	Player::Player():GameObject()
 	{
@@ -31,6 +33,20 @@ namespace min {
 		{
 			mY += delta;
 		}
+
+		if (Input::GetKey(eKeyCode::Space))
+		{
+			Shoot();
+		}
+
+		for (Bullet* bullet : bullets)
+		{
+			if (bullet->GetStatus())
+			{
+				bullet->Update();
+			}
+		}
+
 	}
 
 	void Player::LateUpdate() {}
@@ -51,5 +67,19 @@ namespace min {
 		SelectObject(hdc, oldBrush);
 		DeleteObject(blueBrush);
 		DeleteObject(redPen);
+
+		// ÃÑ¾Ë ·»´õ¸µ
+		for (Bullet* bullet : bullets) {
+			if (bullet->GetStatus()) {
+				bullet->Render(hdc);
+			}
+		}
+	}
+
+	void Player::Shoot()
+	{ 
+		//ÃÑ¾Ë »ý¼º
+		Bullet* newBullet = new Bullet(GetPositionX(), GetPositionY());
+		bullets.push_back(newBullet);
 	}
 }

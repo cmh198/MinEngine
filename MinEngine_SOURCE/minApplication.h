@@ -29,5 +29,6 @@ namespace min
 
 		Player mPlayer;
 		Monster mMonster;
+
 	};
 }
