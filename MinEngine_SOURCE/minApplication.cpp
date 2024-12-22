@@ -48,6 +48,7 @@ namespace min
 		DeleteObject(oldBitmap);
 
 		mPlayer.SetPosition(0, 0);
+		mMonster.SetPosition(100, 100);
 		Input::Initialize();
 		Time::Initialize();
 	}
@@ -65,6 +66,7 @@ namespace min
 		Time::Update();
 
 		mPlayer.Update();
+		mMonster.Update();
 	}
 	void Application::LateUpdate()
 	{
@@ -76,6 +78,7 @@ namespace min
 		Rectangle(mBackHdc, 0, 0, 1600, 900);
 		Time::Render(mBackHdc);
 		mPlayer.Render(mBackHdc);
+		mMonster.Render(mBackHdc);
 
 		// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight,mBackHdc,0,0,SRCCOPY);

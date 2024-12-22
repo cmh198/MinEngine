@@ -1,5 +1,6 @@
 #pragma once
-#include "minGameObject.h"
+#include "minPlayer.h"
+#include "minMonster.h"
 
 namespace min
 {
@@ -26,6 +27,7 @@ namespace min
 		UINT mWidth;
 		UINT mHeight;
 
-		GameObject mPlayer;
+		Player mPlayer;
+		Monster mMonster;
 	};
 }

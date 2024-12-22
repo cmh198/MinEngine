@@ -1,26 +1,22 @@
 #pragma once
 #include "CommonInclude.h"
 
-namespace min {
-	class GameObject {
+namespace min
+{
+	class GameObject
+	{
 	public:
 		GameObject();
-		~GameObject();
+		virtual ~GameObject() {};
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Render(HDC hdc)=0;
+		virtual void Update()=0;
+		virtual void LateUpdate()=0;
+		virtual void SetPosition(float x, float y)=0;
+		virtual float GetPositionX()=0;
+		virtual float GetPositionY()=0;
 
-		void SetPosition(float x, float y)
-		{
-			mX = x;
-			mY = y;
-		}
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
-	private:
-		//게임오브젝트 좌표
-		float mX;
-		float mY;
+	protected:
+		float mX,mY;
 	};
 }
