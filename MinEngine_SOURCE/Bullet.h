@@ -17,6 +17,7 @@ namespace min
 		float GetPositionY() override;
 		bool GetStatus();
 		void SetStatus(bool active);
+		void onCollision(GameObject* other) override;
 
 	private:
 		bool isActive = false;

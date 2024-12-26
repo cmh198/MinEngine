@@ -1,6 +1,7 @@
 #include "minMonster.h"
 #include "minInput.h"
 #include "minTime.h"
+#include "Bullet.h"
 #include <random>
 
 namespace min
@@ -40,6 +41,8 @@ namespace min
 		const int speed = 500.0f;
 
 		mX+= dist(gen) * speed * Time::DeltaTime();
+
+		if (bDestroyed == true) delete this;
 	}
 
 	void Monster::LateUpdate() {}
@@ -53,5 +56,10 @@ namespace min
 	float Monster::GetPositionX() { return mX; }
 	float Monster::GetPositionY() { return mY; }
 
+	void Monster::onCollision(GameObject* other) {
+		if (dynamic_cast<Bullet*>(other) != nullptr) {
+			bDestroyed = true;
+		}
+	}
 
 }

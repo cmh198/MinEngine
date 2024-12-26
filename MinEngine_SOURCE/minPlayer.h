@@ -4,7 +4,7 @@
 #include "Bullet.h"
 
 namespace min {
-	class Player:public GameObject {
+	class Player :public GameObject {
 	public:
 		Player();
 		~Player();
@@ -18,13 +18,28 @@ namespace min {
 			mX = x;
 			mY = y;
 		}
-		float GetPositionX() override { return mX+200; }
-		float GetPositionY() override { return mY+150; }
+		float GetPositionX() override { return mX + 200; }
+		float GetPositionY() override { return mY + 150; }
 		std::vector<Bullet*>& GetBullets() { return bullets; }
+		void onCollision(GameObject* other) override;
+		bool canShoot(float currentTime)
+		{
+			if (currentTime - lastusedTime >= cooldownTime)
+			{
+				lastusedTime = currentTime;
+				return true;
+			}
+
+			return false;
+		}
 
 
 	private:
 		std::vector<Bullet*> bullets;
+		float monsterX = 0, monsterY = 0;
 		void Shoot();
+
+		float cooldownTime = 1.0f;
+		float lastusedTime = 0.0f;
 	};
 }

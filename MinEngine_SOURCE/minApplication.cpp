@@ -63,17 +63,19 @@ namespace min
 
 	void Application::Update()
 	{
+		if (isPaused) return;
 		Input::Update();
 		Time::Update();
 
-		mPlayer.Update();
 		mMonster.Update();
+		mPlayer.Update();
 
+		CheckCollision();
 
 	}
 	void Application::LateUpdate()
 	{
-
+		
 	}
 
 	void Application::Render()
@@ -86,6 +88,27 @@ namespace min
 		// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight,mBackHdc,0,0,SRCCOPY);
 
+	}
+
+	void Application::CheckCollision()
+	{
+		float monsterlx = 400 + mMonster.GetPositionX();
+		float monsterrx = 500 + mMonster.GetPositionX();
+		float monsterty = 50 + mMonster.GetPositionY();
+		float monsterby = 150 + mMonster.GetPositionY();
+
+		for (auto bullet : mPlayer.GetBullets())
+		{
+			bool checkX = monsterlx <= bullet->GetPositionX() && bullet->GetPositionX() <= monsterrx;
+			bool checkY = monsterty <= bullet->GetPositionY() && bullet->GetPositionY() <= monsterby;
+
+			if (checkX && checkY)
+			{
+				bullet->onCollision(&mMonster);
+				mMonster.onCollision(bullet);
+				isPaused = true;
+			}
+		}
 	}
 
 	

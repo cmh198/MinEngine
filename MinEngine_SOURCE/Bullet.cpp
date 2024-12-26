@@ -15,13 +15,17 @@ namespace min
 
 	void Bullet::Update()
 	{
-		const int speed = 100;
+		const int speed = 500;
 		if (isActive)
 		{
 			mX += speed * Time::DeltaTime();
+
+			//충돌 처리
+			
 		}
 		
 	}
+	
 	void Bullet::LateUpdate()
 	{
 	}
@@ -67,5 +71,10 @@ namespace min
 	void Bullet::SetStatus(bool active)
 	{
 		isActive = active;
+	}
+	void Bullet::onCollision(GameObject* other)
+	{
+		if(other!=nullptr)
+			bDestroyed = true;
 	}
 }

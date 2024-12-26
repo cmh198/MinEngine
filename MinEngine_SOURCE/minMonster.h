@@ -5,7 +5,7 @@
 
 namespace min
 {
-	class Monster:public GameObject
+	class Monster :public GameObject
 	{
 	public:
 		Monster();
@@ -16,8 +16,9 @@ namespace min
 		void SetPosition(float x, float y) override;
 		float GetPositionX() override;
 		float GetPositionY() override;
+		void onCollision(GameObject* other) override;
 
 	private:
-		
+
 	};
 }

@@ -16,7 +16,10 @@ namespace min
 		virtual float GetPositionX()=0;
 		virtual float GetPositionY()=0;
 
+		virtual void onCollision(GameObject* other) = 0;
+		bool getDestroyed() { return bDestroyed; }
 	protected:
 		float mX,mY;
+		bool bDestroyed = false;
 	};
 }

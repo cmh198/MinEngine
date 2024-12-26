@@ -36,18 +36,28 @@ namespace min {
 
 		if (Input::GetKey(eKeyCode::Space))
 		{
-			Shoot();
+			if(canShoot(GetTickCount64()/1000.0f))
+				Shoot();
 		}
 
-		for (Bullet* bullet : bullets)
+		for (size_t i = 0; i < bullets.size(); i++)
 		{
-			if (bullet->GetStatus())
+			if (bullets[i]->GetStatus())
 			{
-				bullet->Update();
+				bullets[i]->Update();
+
+				if (bullets[i]->getDestroyed() == true)
+				{
+					delete bullets[i];
+					bullets.erase(bullets.begin() + i);
+					i--;
+				}
 			}
 		}
 
 	}
+
+	
 
 	void Player::LateUpdate() {}
 	void Player::Render(HDC hdc)
@@ -81,5 +91,10 @@ namespace min {
 		//ÃÑ¾Ë »ý¼º
 		Bullet* newBullet = new Bullet(GetPositionX(), GetPositionY());
 		bullets.push_back(newBullet);
+	}
+
+	void Player::onCollision(GameObject* other) 
+	{
+
 	}
 }

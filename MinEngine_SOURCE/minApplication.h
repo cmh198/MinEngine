@@ -16,6 +16,7 @@ namespace min
 		void Update();
 		void LateUpdate();
 		void Render();
+		void CheckCollision();
 
 	private:
 		HWND mHwnd;
@@ -29,6 +30,6 @@ namespace min
 
 		Player mPlayer;
 		Monster mMonster;
-
+		bool isPaused = false;
 	};
 }
