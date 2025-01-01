@@ -13,15 +13,15 @@ namespace min {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPosition(float x, float y) override
+		void SetPosition(float x, float y) 
 		{
 			mX = x;
 			mY = y;
 		}
-		float GetPositionX() override { return mX + 200; }
-		float GetPositionY() override { return mY + 150; }
+		float GetPositionX()  { return mX; }
+		float GetPositionY()  { return mY; }
 		std::vector<Bullet*>& GetBullets() { return bullets; }
-		void onCollision(GameObject* other) override;
+		void onCollision(GameObject* other) ;
 		bool canShoot(float currentTime)
 		{
 			if (currentTime - lastusedTime >= cooldownTime)

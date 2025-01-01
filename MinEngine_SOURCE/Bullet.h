@@ -12,12 +12,12 @@ namespace min
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-		void SetPosition(float x, float y) override;
-		float GetPositionX() override;
-		float GetPositionY() override;
+		void SetPosition(float x, float y) ;
+		float GetPositionX() ;
+		float GetPositionY() ;
 		bool GetStatus();
 		void SetStatus(bool active);
-		void onCollision(GameObject* other) override;
+		void onCollision(GameObject* other);
 
 	private:
 		bool isActive = false;

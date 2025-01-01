@@ -72,7 +72,7 @@ namespace min {
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 		SelectObject(hdc, oldPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(blueBrush);
@@ -89,7 +89,7 @@ namespace min {
 	void Player::Shoot()
 	{ 
 		//ÃÑ¾Ë »ý¼º
-		Bullet* newBullet = new Bullet(GetPositionX(), GetPositionY());
+		Bullet* newBullet = new Bullet(GetPositionX()+100, GetPositionY());
 		bullets.push_back(newBullet);
 	}
 

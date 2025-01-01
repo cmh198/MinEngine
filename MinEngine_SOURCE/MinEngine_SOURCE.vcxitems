@@ -16,20 +16,26 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minPlayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minMonster.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minTime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minPlayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minMonster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minTime.h" />
   </ItemGroup>
 </Project>

@@ -34,7 +34,7 @@ namespace min
 		if (isActive)
 		{
 			//파랑 브러쉬 생성
-			HBRUSH newBrush = CreateSolidBrush(RGB(255, 255, 0));
+			HBRUSH newBrush = CreateSolidBrush(RGB(255, 0, 0));
 
 			// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);

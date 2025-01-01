@@ -4,7 +4,8 @@
 #include "framework.h"
 #include "MinEngine.h"
 
-#include "MinEngine_SOURCE\minApplication.h"
+#include "..\\MinEngine_SOURCE\\minApplication.h"
+#include "..\\MinEngine_Window\\minLoadScene.h"
 
 min::Application app;
 
@@ -140,6 +141,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   min::LoadScenes();
 
    return TRUE;
 }

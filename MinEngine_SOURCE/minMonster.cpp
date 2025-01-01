@@ -12,7 +12,7 @@ namespace min
 
 	Monster::Monster():GameObject()
 	{ 
-		mY = 0;
+
 	}
 	Monster::~Monster() {}
 
@@ -28,7 +28,7 @@ namespace min
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 		SelectObject(hdc, oldPen);
 
-		Ellipse(hdc, 400 + mX, 50 + mY, 500 + mX, 150 + mY);
+		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(newBrush);
@@ -42,7 +42,7 @@ namespace min
 
 		mX+= dist(gen) * speed * Time::DeltaTime();
 
-		if (bDestroyed == true) delete this;
+		//if (bDestroyed == true) delete this;
 	}
 
 	void Monster::LateUpdate() {}
@@ -60,6 +60,11 @@ namespace min
 		if (dynamic_cast<Bullet*>(other) != nullptr) {
 			bDestroyed = true;
 		}
+	}
+
+	bool Monster::GetDestroyed()
+	{
+		return bDestroyed;
 	}
 
 }

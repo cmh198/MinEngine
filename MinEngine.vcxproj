@@ -144,6 +144,11 @@
     <Image Include="MinEngine.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="MinEngine_Window\MinEngine_Window.vcxproj">
+      <Project>{3a8831d2-782e-4d03-9fd2-5f0d55a02e59}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
