@@ -9,11 +9,17 @@ namespace min {
 
 	}
 
+	Player::Player(float x, float y):GameObject(x,y)
+	{
+
+	}
+	
+
 	Player::~Player() {}
 
 	void Player::Update()
 	{
-		const int speed = 100.0f;
+		const int speed = 500.0f;
 
 		float delta = speed * Time::DeltaTime();
 
@@ -36,7 +42,7 @@ namespace min {
 
 		if (Input::GetKey(eKeyCode::Space))
 		{
-			if(canShoot(GetTickCount64()/1000.0f))
+			if(canShoot(GetTickCount64()/100.0f))
 				Shoot();
 		}
 

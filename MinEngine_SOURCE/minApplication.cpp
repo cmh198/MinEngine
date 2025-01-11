@@ -39,7 +39,6 @@ namespace min
 		SceneManager::Update();
 
 
-		//CheckCollision();
 
 	}
 	void Application::LateUpdate()
@@ -59,25 +58,7 @@ namespace min
 
 	}
 
-	void Application::CheckCollision()
-	{
-		float monsterlx = mMonster.GetPositionX();
-		float monsterrx = 100 + mMonster.GetPositionX();
-		float monsterty = mMonster.GetPositionY();
-		float monsterby = 100 + mMonster.GetPositionY();
-
-		for (auto bullet : mPlayer.GetBullets())
-		{
-			bool checkX = monsterlx <= bullet->GetPositionX() && bullet->GetPositionX() <= monsterrx;
-			bool checkY = monsterty <= bullet->GetPositionY() && bullet->GetPositionY() <= monsterby;
-
-			if (checkX && checkY)
-			{
-				bullet->onCollision(&mMonster);
-				mMonster.onCollision(bullet);
-			}
-		}
-	}
+	
 	void Application::clearRenderTarget()
 	{
 		Rectangle(mBackHdc, -1, -1, 1601, 901);

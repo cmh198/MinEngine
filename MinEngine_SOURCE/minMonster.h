@@ -9,6 +9,7 @@ namespace min
 	{
 	public:
 		Monster();
+		Monster(float x, float y);
 		~Monster();
 		void Update() override;
 		void LateUpdate() override;

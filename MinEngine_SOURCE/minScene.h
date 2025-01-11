@@ -4,6 +4,7 @@
 #include "minGameObject.h"
 #include "minPlayer.h"
 #include "minMonster.h"
+#include "Terrain.h"
 
 namespace min
 {
@@ -21,11 +22,13 @@ namespace min
 		void AddGameObject(GameObject* gameObject);
 		void AddMonster(Monster* monster);
 		void AddPlayer(Player* player);
+		void AddTerrain(Terrain* terrain);
 
 	protected:
 		std::vector<GameObject*> mGameObjects;
 		std::vector<Monster*> mMonsters;
 		std::vector<Player*> mPlayers;
+		std::vector<Terrain*> mTerrains;
 
 	};
 }

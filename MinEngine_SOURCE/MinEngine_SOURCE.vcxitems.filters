@@ -1,18 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Label="Globals">
-    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
-    <HasSharedItems>true</HasSharedItems>
-    <ItemsProjectGuid>{b27c82d9-bbb1-4220-a447-f9f3da406e0a}</ItemsProjectGuid>
-  </PropertyGroup>
-  <ItemDefinitionGroup>
-    <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
-    </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <ProjectCapability Include="SourceItemsFromImports" />
-  </ItemGroup>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minApplication.cpp" />
@@ -24,7 +11,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)minScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minTime.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Terrain.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Terrain.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
@@ -38,12 +27,33 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)minScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minTime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Terrain.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Terrain.h">
+      <Filter>object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Stage Select.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - X.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Yukidarubon.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Zero.png" />
+    <Filter Include="object">
+      <UniqueIdentifier>{5c72b455-78dd-4997-9ba4-5e85a063bce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{bdb3415e-8dc1-49d5-8666-7fe66cd1558c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{c9eb5b04-ce1f-4eb4-a92a-92fc0612b588}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Stage Select.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - X.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Yukidarubon.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Zero.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -30,6 +30,11 @@ namespace min
 		{
 			gameObj->Update();
 		}
+
+		for (GameObject* gameObj : mTerrains)
+		{
+			gameObj->Update();
+		}
 	}
 
 	void Scene::LateUpdate()
@@ -43,6 +48,10 @@ namespace min
 			gameObj->LateUpdate();
 		}
 		for (GameObject* gameObj : mPlayers)
+		{
+			gameObj->LateUpdate();
+		}
+		for (GameObject* gameObj : mTerrains)
 		{
 			gameObj->LateUpdate();
 		}
@@ -63,6 +72,10 @@ namespace min
 		{
 			gameObj->Render(hdc);
 		}
+		for (GameObject* gameObj : mTerrains)
+		{
+			gameObj->Render(hdc);
+		}
 	}
 
 	void Scene::AddGameObject(GameObject* gameObject)
@@ -78,6 +91,11 @@ namespace min
 	void Scene::AddPlayer(Player* player)
 	{
 		mPlayers.push_back(player);
+	}
+
+	void Scene::AddTerrain(Terrain* terrain)
+	{
+		mTerrains.push_back(terrain);
 	}
 
 }

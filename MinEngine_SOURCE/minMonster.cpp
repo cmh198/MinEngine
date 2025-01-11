@@ -14,6 +14,10 @@ namespace min
 	{ 
 
 	}
+	Monster::Monster(float x, float y):GameObject(x,y)
+	{
+
+	}
 	Monster::~Monster() {}
 
 	void Monster::Render(HDC hdc)
@@ -42,7 +46,6 @@ namespace min
 
 		mX+= dist(gen) * speed * Time::DeltaTime();
 
-		//if (bDestroyed == true) delete this;
 	}
 
 	void Monster::LateUpdate() {}

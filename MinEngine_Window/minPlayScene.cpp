@@ -3,6 +3,8 @@
 #include "minPlayer.h"
 #include "minMonster.h"
 #include "Bullet.h"
+#include "Terrain.h"
+
 #include <vector>
 
 namespace min
@@ -33,12 +35,19 @@ namespace min
 	}
 	void PlayScene::Initialize()
 	{
-		Player* player = new Player();
-		player->SetPosition(100, 100);
-		Monster* monster= new Monster();
-		monster->SetPosition(400, 100);
+		Player* player = new Player(100, 100);
+
+		Monster* monster= new Monster(400,100);
+
+		Monster* monster2= new Monster(400,400);
+		
+		Terrain* ground = new Terrain(0, 800, 1600, 100);
+
+		
+		AddTerrain(ground);
 		AddPlayer(player);
 		AddMonster(monster);
+		AddMonster(monster2);
 	}
 	void PlayScene::Update()
 	{

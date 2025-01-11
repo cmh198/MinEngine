@@ -7,6 +7,7 @@ namespace min {
 	class Player :public GameObject {
 	public:
 		Player();
+		Player(float x, float y);
 		~Player();
 
 		void Update() override;
