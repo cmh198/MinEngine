@@ -42,18 +42,4 @@
       <UniqueIdentifier>{c9eb5b04-ce1f-4eb4-a92a-92fc0612b588}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Stage Select.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - X.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Yukidarubon.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Zero.png">
-      <Filter>Resources</Filter>
-    </Image>
-  </ItemGroup>
 </Project>

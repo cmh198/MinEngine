@@ -40,10 +40,4 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)minTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Terrain.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Stage Select.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - X.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Yukidarubon.png" />
-    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\OneDrive\바탕 화면\록맨x4 리소스\PlayStation - Mega Man X4 - Zero.png" />
-  </ItemGroup>
 </Project>

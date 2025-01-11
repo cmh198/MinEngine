@@ -38,8 +38,6 @@ namespace min
 
 		SceneManager::Update();
 
-
-
 	}
 	void Application::LateUpdate()
 	{
@@ -72,7 +70,6 @@ namespace min
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
-
 		//더블 버퍼링
 
 		//현재 Client 영역
