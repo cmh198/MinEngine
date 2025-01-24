@@ -16,28 +16,42 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minPlayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)minMonster.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)minTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)minTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minPlayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)minMonster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)minTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)minTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Terrain.h" />
   </ItemGroup>
 </Project>

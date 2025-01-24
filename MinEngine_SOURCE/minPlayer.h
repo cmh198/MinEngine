@@ -7,13 +7,12 @@ namespace min {
 	class Player :public GameObject {
 	public:
 		Player();
-		Player(float x, float y);
 		~Player();
 
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-
+		void Initialize() override;
 		void SetPosition(float x, float y) 
 		{
 			mX = x;
@@ -37,7 +36,6 @@ namespace min {
 
 	private:
 		std::vector<Bullet*> bullets;
-		float monsterX = 0, monsterY = 0;
 		void Shoot();
 
 		float cooldownTime = 1.0f;

@@ -1,5 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
+#include "minComponent.h"
+
 
 namespace min
 {
@@ -7,17 +9,46 @@ namespace min
 	{
 	public:
 		GameObject();
-		GameObject(float x, float y) :mX(x), mY(y) {}
-		virtual ~GameObject() {};
+		~GameObject();
 
-		virtual void Render(HDC hdc)=0;
-		virtual void Update()=0;
-		virtual void LateUpdate()=0;
-		virtual void SetPosition(float x,float y)=0;
+		virtual void Initialize();
+		virtual void Render(HDC hdc);
+		virtual void Update();
+		virtual void LateUpdate();
+
+		template<typename T>
+		T* AddComponent()
+		{
+			T* comp = new T();
+			comp->Initialize();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
+		}
+
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
+
+			return component;
+		}
 
 		bool getDestroyed() { return bDestroyed; }
 	protected:
-		float mX,mY;
+		float mX=0,mY=0;
 		bool bDestroyed = false;
+
+	private:
+		void InitializeTransform();
+	private:
+		std::vector<Component*> mComponents;
 	};
 }

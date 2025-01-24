@@ -14,10 +14,7 @@ namespace min
 		void Render(HDC hdc) override;
 		void Update() override;
 		void LateUpdate() override;
-		void SetPosition(float x, float y) override {
-			mX = x;
-			mY = y;
-		}
+		
 
 	private:
 		float mX, mY;

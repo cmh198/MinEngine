@@ -1,95 +1,69 @@
 #include "minPlayer.h"
 #include "minInput.h"
 #include "minTime.h"
+#include "minTransform.h"
 #include "Bullet.h"
 
 namespace min {
-	Player::Player():GameObject()
+
+	Player::Player()
+	{
+
+	}
+	Player::~Player()
 	{
 
 	}
 
-	Player::Player(float x, float y):GameObject(x,y)
+	void Player::Initialize()
 	{
-
+		GameObject::Initialize();
 	}
-	
-
-	Player::~Player() {}
 
 	void Player::Update()
 	{
-		const int speed = 500.0f;
-
-		float delta = speed * Time::DeltaTime();
-
-		if (Input::GetKey(eKeyCode::A))
-		{
-			mX -= delta;
-		}
-		if (Input::GetKey(eKeyCode::D))
-		{
-			mX += delta;
-		}
-		if (Input::GetKey(eKeyCode::W))
-		{
-			mY -= delta;
-		}
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mY += delta;
-		}
-
-		if (Input::GetKey(eKeyCode::Space))
-		{
-			if(canShoot(GetTickCount64()/100.0f))
-				Shoot();
-		}
-
-		for (size_t i = 0; i < bullets.size(); i++)
-		{
-			if (bullets[i]->GetStatus())
-			{
-				bullets[i]->Update();
-
-				if (bullets[i]->getDestroyed() == true)
-				{
-					delete bullets[i];
-					bullets.erase(bullets.begin() + i);
-					i--;
-				}
-			}
-		}
+		GameObject::Update();
 
 	}
 
 	
 
-	void Player::LateUpdate() {}
+	void Player::LateUpdate()
+	{
+		GameObject::LateUpdate();
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			Transform* tr = GetComponent<Transform>();
+			Vector2 pos = tr->GetPosition();
+			pos.x += 100.0f * Time::DeltaTime();
+			tr->SetPosition(pos);
+		}
+	}
 	void Player::Render(HDC hdc)
 	{
-		//파랑 브러쉬 생성
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		GameObject::Render(hdc);
+		////파랑 브러쉬 생성
+		//HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
 
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+		//// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
+		//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-		SelectObject(hdc, oldPen);
+		//HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+		//HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
+		//SelectObject(hdc, oldPen);
 
-		Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
+		//Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
 
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+		//SelectObject(hdc, oldBrush);
+		//DeleteObject(blueBrush);
+		//DeleteObject(redPen);
 
-		// 총알 렌더링
-		for (Bullet* bullet : bullets) {
-			if (bullet->GetStatus()) {
-				bullet->Render(hdc);
-			}
-		}
+		//// 총알 렌더링
+		//for (Bullet* bullet : bullets) {
+		//	if (bullet->GetStatus()) {
+		//		bullet->Render(hdc);
+		//	}
+		//}
 	}
 
 	void Player::Shoot()

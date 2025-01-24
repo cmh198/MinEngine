@@ -2,9 +2,9 @@
 
 namespace min
 {
-	Scene::Scene() :mGameObjects{}
+	Scene::Scene() :mLayers{}
 	{
-
+		CreateLayers();
 	}
 	Scene::~Scene()
 	{
@@ -13,89 +13,72 @@ namespace min
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
 
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
-		}
-		for (GameObject* gameObj : mMonsters)
-		{
-			gameObj->Update();
-		}
-		for (GameObject* gameObj : mPlayers)
-		{
-			gameObj->Update();
-		}
+			if (layer == nullptr)
+				continue;
 
-		for (GameObject* gameObj : mTerrains)
-		{
-			gameObj->Update();
+			layer->Update();
 		}
+		
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
-		}
-		for (GameObject* gameObj : mMonsters)
-		{
-			gameObj->LateUpdate();
-		}
-		for (GameObject* gameObj : mPlayers)
-		{
-			gameObj->LateUpdate();
-		}
-		for (GameObject* gameObj : mTerrains)
-		{
-			gameObj->LateUpdate();
+			if (layer == nullptr)
+				continue;
+
+			layer->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			if (layer == nullptr)
+				continue;
+
+			layer->Render(hdc);
 		}
-		for (GameObject* gameObj : mMonsters)
-		{
-			if(gameObj->getDestroyed()==false)
-				gameObj->Render(hdc);
-		}
-		for (GameObject* gameObj : mPlayers)
-		{
-			gameObj->Render(hdc);
-		}
-		for (GameObject* gameObj : mTerrains)
-		{
-			gameObj->Render(hdc);
-		}
+		
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObject, const eLayerType type)
 	{
-		mGameObjects.push_back(gameObject);
+		mLayers[(UINT)type]->AddGameObject(gameObject);
+	}
+	
+
+	void Scene::OnEnter()
+	{
 	}
 
-	void Scene::AddMonster(Monster* monster)
+	void Scene::OnExit()
 	{
-		mMonsters.push_back(monster);
 	}
 
-	void Scene::AddPlayer(Player* player)
+	void Scene::CreateLayers()
 	{
-		mPlayers.push_back(player);
-	}
+		mLayers.resize((UINT)eLayerType::Max);
+		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 
-	void Scene::AddTerrain(Terrain* terrain)
-	{
-		mTerrains.push_back(terrain);
 	}
 
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include "minPlayer.h"
-#include "minMonster.h"
 
 namespace min
 {
@@ -37,7 +36,6 @@ namespace min
 		UINT mHeight;
 
 		Player mPlayer;
-		Monster mMonster;
 		bool isPaused = false;
 	};
 }

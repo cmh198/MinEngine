@@ -3,8 +3,9 @@
 #include "minEntity.h"
 #include "minGameObject.h"
 #include "minPlayer.h"
-#include "minMonster.h"
 #include "Terrain.h"
+#include "minLayer.h"
+#include "minEnums.h"
 
 namespace min
 {
@@ -19,16 +20,21 @@ namespace min
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void AddGameObject(GameObject* gameObject);
-		void AddMonster(Monster* monster);
-		void AddPlayer(Player* player);
-		void AddTerrain(Terrain* terrain);
+		virtual void OnEnter();
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* gameObj, const eLayerType type);
+
+		Layer* GetLayer(const eLayerType type) { return mLayers[(UINT)type]; }
 
 	protected:
 		std::vector<GameObject*> mGameObjects;
-		std::vector<Monster*> mMonsters;
-		std::vector<Player*> mPlayers;
-		std::vector<Terrain*> mTerrains;
+
+	private:
+		void CreateLayers();
+
+	private:
+		std::vector<Layer*> mLayers;
 
 	};
 }

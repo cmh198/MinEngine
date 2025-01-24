@@ -1,9 +1,13 @@
 #include "minPlayScene.h"
 #include "minGameObject.h"
 #include "minPlayer.h"
-#include "minMonster.h"
 #include "Bullet.h"
-#include "Terrain.h"
+#include "minInput.h"
+#include "minTitleScene.h"
+#include "minSceneManager.h"
+#include "minTransform.h"
+#include "minObject.h"
+#include "minSpriteRenderer.h"
 
 #include <vector>
 
@@ -14,99 +18,59 @@ namespace min
 	}
 	PlayScene::~PlayScene()
 	{
-		for (auto monster : mMonsters)
-		{
-			delete monster;
-		}
-
-		for (auto gameObject : mGameObjects)
-		{
-			delete gameObject;
-		}
-
-		for (auto player : mPlayers)
-		{
-			delete player;
-		}
-
-		mMonsters.clear();
-		mGameObjects.clear();
-		mPlayers.clear();
+		
 	}
+
 	void PlayScene::Initialize()
 	{
-		Player* player = new Player(100, 100);
+		bg = new Player();
+		Transform* tr
+			= bg->GetComponent<Transform>();
+		tr->SetPosition(Vector2(500, 500));
 
-		Monster* monster= new Monster(400,100);
+		tr->SetName(L"TR");
 
-		Monster* monster2= new Monster(400,400);
+		SpriteRenderer* sr
+			= bg->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SR");
+
+		AddGameObject(bg, eLayerType::BackGround);
 		
-		Terrain* ground = new Terrain(0, 800, 1600, 100);
-
-		
-		AddTerrain(ground);
-		AddPlayer(player);
-		AddMonster(monster);
-		AddMonster(monster2);
 	}
 	void PlayScene::Update()
 	{
 		Scene::Update();
 
-		HandleCollision();
-		ClearDeadObject();
 	}
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 0, 0, str, 10);
+
 	}
 
-	void PlayScene::HandleCollision()
+	
+	
+
+	void PlayScene::OnEnter()
 	{
-		for (Player* player : mPlayers)
-		{
-			std::vector<Bullet*> bullets = player->GetBullets();
 
-			//monster 순회해서 bullet과 충돌처리
-
-			for (Monster* monster : mMonsters)
-			{
-				float monsterlx = monster->GetPositionX();
-				float monsterrx = 100 + monster->GetPositionX();
-				float monsterty = monster->GetPositionY();
-				float monsterby = 100 + monster->GetPositionY();
-
-				for (Bullet* bullet : bullets)
-				{
-					bool checkX = monsterlx <= bullet->GetPositionX() && bullet->GetPositionX() <= monsterrx;
-					bool checkY = monsterty <= bullet->GetPositionY() && bullet->GetPositionY() <= monsterby;
-
-					if (checkX && checkY)
-					{
-						bullet->onCollision(monster);
-						monster->onCollision(bullet);
-					}
-				}
-			}
-		}
 	}
-
-	void PlayScene::ClearDeadObject()
+	void PlayScene::OnExit()
 	{
-		for (auto it = mMonsters.begin(); it != mMonsters.end();)
-		{
-			if ((*it)->GetDestroyed()) {
-				delete* it;
-				it = mMonsters.erase(it);
-			}
-			else {
-				++it;
-			}
-		}
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPosition(Vector2(0, 0));
 	}
 
 }

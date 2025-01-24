@@ -41,18 +41,18 @@ namespace min
 	}
 	void Application::LateUpdate()
 	{
-
+		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
 	{
 		clearRenderTarget();
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+
 		Time::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		//// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
-		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+		copyRenderTarget(mBackHdc, mHdc);
 
 	}
 
