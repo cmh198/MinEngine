@@ -1,6 +1,6 @@
 #include "Bullet.h"
-#include "minTime.h"
-#include "minInput.h"
+#include "../Common/minTime.h"
+#include "../Input/minInput.h"
 
 namespace min
 {

@@ -1,7 +1,7 @@
 #pragma once
-#include "CommonInclude.h"
-#include "minGameObject.h"
-#include "Bullet.h"
+#include "../../Common/CommonInclude.h"
+#include "../minGameObject.h"
+#include "../../Etc/Bullet.h"
 
 namespace min {
 	class Player :public GameObject {

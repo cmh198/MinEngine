@@ -1,5 +1,5 @@
 #include "minGameObject.h"
-#include "minTransform.h"
+#include "../Component/minTransform.h"
 
 namespace min
 {

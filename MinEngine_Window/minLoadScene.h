@@ -1,5 +1,5 @@
 #pragma once
-#include "..\\MinEngine_SOURCE\\minSceneManager.h"
+#include "..\\MinEngine_SOURCE\\Scene\\minSceneManager.h"
 
 #include "minPlayScene.h"
 

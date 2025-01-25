@@ -1,5 +1,5 @@
 #pragma once
-#include "minPlayer.h"
+#include "../GameObject/Player/minPlayer.h"
 
 namespace min
 {

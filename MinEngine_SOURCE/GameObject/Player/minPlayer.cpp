@@ -1,8 +1,8 @@
 #include "minPlayer.h"
-#include "minInput.h"
-#include "minTime.h"
-#include "minTransform.h"
-#include "Bullet.h"
+#include "../../Input/minInput.h"
+#include "../../Component/minTransform.h"
+#include "../../Etc/Bullet.h"
+#include "../../Common/minTime.h"
 
 namespace min {
 

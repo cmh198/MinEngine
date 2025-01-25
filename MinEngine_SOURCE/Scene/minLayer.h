@@ -1,7 +1,7 @@
 #pragma once
-#include "minEntity.h"
-#include "CommonInclude.h"
-#include "minGameObject.h"
+#include "../Entity/minEntity.h"
+#include "../Common/CommonInclude.h"
+#include "../GameObject/minGameObject.h"
 
 namespace min
 {

@@ -1,5 +1,5 @@
 #include "minSpriteRenderer.h"
-#include "minGameObject.h"
+#include "../GameObject/minGameObject.h"
 #include "minTransform.h"
 
 

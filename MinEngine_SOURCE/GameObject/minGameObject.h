@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonInclude.h"
-#include "minComponent.h"
+#include "../Common/CommonInclude.h"
+#include "../Component/minComponent.h"
 
 
 namespace min

@@ -1,7 +1,7 @@
 #include "minApplication.h"
-#include "minInput.h"
-#include "minTime.h"
-#include "minSceneManager.h"
+#include "../Input/minInput.h"
+#include "../Common/minTime.h"
+#include "../Scene/minSceneManager.h"
 
 namespace min
 {

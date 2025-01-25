@@ -1,6 +1,6 @@
 #pragma once
 
-#include "minGameObject.h"
+#include "../GameObject/minGameObject.h"
 
 namespace min
 {
@@ -19,5 +19,6 @@ namespace min
 	private:
 		float mX, mY;
 		float dX, dY;
+
 	};
 }

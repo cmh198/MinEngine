@@ -1,11 +1,11 @@
 #pragma once
 
-#include "minEntity.h"
-#include "minGameObject.h"
-#include "minPlayer.h"
-#include "Terrain.h"
+#include "../Entity/minEntity.h"
+#include "../GameObject/minGameObject.h"
+#include "../GameObject/Player/minPlayer.h"
+#include "../Etc/Terrain.h"
 #include "minLayer.h"
-#include "minEnums.h"
+#include "../Common/minEnums.h"
 
 namespace min
 {

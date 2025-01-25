@@ -1,13 +1,13 @@
 #include "minPlayScene.h"
-#include "minGameObject.h"
-#include "minPlayer.h"
-#include "Bullet.h"
-#include "minInput.h"
+#include "../MinEngine_SOURCE/GameObject/minGameObject.h"
+#include "../MinEngine_SOURCE/GameObject/Player/minPlayer.h"
+#include "../MinEngine_SOURCE/Etc/Bullet.h"
+#include "../MinEngine_SOURCE/Input/minInput.h"
 #include "minTitleScene.h"
-#include "minSceneManager.h"
-#include "minTransform.h"
-#include "minObject.h"
-#include "minSpriteRenderer.h"
+#include "../MinEngine_SOURCE/Scene/minSceneManager.h"
+#include "../MinEngine_SOURCE/Component/minTransform.h"
+#include "../MinEngine_SOURCE/Object/minObject.h"
+#include "../MinEngine_SOURCE/Component/minSpriteRenderer.h"
 
 #include <vector>
 
@@ -33,8 +33,9 @@ namespace min
 		SpriteRenderer* sr
 			= bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
+		
 
-		AddGameObject(bg, eLayerType::BackGround);
+		AddGameObject(bg, eLayerType::Player);
 		
 	}
 	void PlayScene::Update()
@@ -50,6 +51,7 @@ namespace min
 		{
 			SceneManager::LoadScene(L"TitleScene");
 		}
+		
 	}
 	void PlayScene::Render(HDC hdc)
 	{

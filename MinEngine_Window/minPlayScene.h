@@ -1,5 +1,5 @@
 #pragma once
-#include "..\\MinEngine_SOURCE\minScene.h"
+#include "..\\MinEngine_SOURCE\Scene\minScene.h"
 
 namespace min
 {

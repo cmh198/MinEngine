@@ -1,5 +1,5 @@
 #pragma once
-#include "minEntity.h"
+#include "../Entity/minEntity.h"
 #include "minComponent.h"
 
 namespace min

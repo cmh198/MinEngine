@@ -1,10 +1,10 @@
 #pragma once
-#include "minComponent.h"
-#include "minGameObject.h"
-#include "minLayer.h"
-#include "minScene.h"
-#include "minSceneManager.h"
-#include "minTransform.h"
+#include "../Component/minComponent.h"
+#include "../GameObject/minGameObject.h"
+#include "../Scene/minLayer.h"
+#include "../Scene/minScene.h"
+#include "../Scene/minSceneManager.h"
+#include "../Component/minTransform.h"
 
 
 namespace min
