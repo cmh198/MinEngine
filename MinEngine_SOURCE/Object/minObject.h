@@ -14,6 +14,11 @@ namespace min
 	{
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
+		if (activeScene == nullptr)
+		{
+			delete(gameObject);
+			return nullptr;
+		}
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
 
@@ -25,7 +30,31 @@ namespace min
 	{
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
+		if (activeScene == nullptr)
+		{
+			delete(gameObject);
+			return nullptr;
+		}
 		Layer* layer = activeScene->GetLayer(type);
+		layer->AddGameObject(gameObject);
+
+		Transform* tr = gameObject->GetComponent<Transform>();
+		tr->SetPosition(position);
+
+		return gameObject;
+	}
+
+	template <typename T>
+	static T* Instantiate(Scene* scene,min::eLayerType type, Vector2 position)
+	{
+		T* gameObject = new T();
+		Scene* activeScene = SceneManager::GetActiveScene();
+		if (activeScene == nullptr)
+		{
+			delete(gameObject);
+			return nullptr;
+		}
+		Layer* layer = scene->GetLayer(type);
 		layer->AddGameObject(gameObject);
 
 		Transform* tr = gameObject->GetComponent<Transform>();

@@ -23,19 +23,14 @@ namespace min
 
 	void PlayScene::Initialize()
 	{
-		bg = new Player();
-		Transform* tr
-			= bg->GetComponent<Transform>();
-		tr->SetPosition(Vector2(500, 500));
+		//PlayScene
+		{
+			bg = Instantiate<Player>(this,eLayerType::Player, Vector2(500, 500));
 
-		tr->SetName(L"TR");
+			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-		SpriteRenderer* sr
-			= bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
-		
-
-		AddGameObject(bg, eLayerType::Player);
+			AddGameObject(bg, eLayerType::Player);
+		}
 		
 	}
 	void PlayScene::Update()
@@ -47,7 +42,7 @@ namespace min
 	{
 		Scene::LateUpdate();
 
-		if (Input::GetKeyDown(eKeyCode::N))
+		if (Input::GetKeyDown(eKeyCode::Tab))
 		{
 			SceneManager::LoadScene(L"TitleScene");
 		}
@@ -71,8 +66,8 @@ namespace min
 	}
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
-		tr->SetPosition(Vector2(0, 0));
+		/*Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPosition(Vector2(0, 0));*/
 	}
 
 }

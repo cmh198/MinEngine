@@ -15,7 +15,6 @@ namespace min
 		void Update();
 		void LateUpdate();
 		void Render();
-		void CheckCollision();
 
 	private:
 

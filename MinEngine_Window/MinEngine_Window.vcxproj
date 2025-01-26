@@ -132,12 +132,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="assignmentScene.h" />
     <ClInclude Include="minLoadResources.h" />
     <ClInclude Include="minLoadScene.h" />
     <ClInclude Include="minPlayScene.h" />
     <ClInclude Include="minTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assignmentScene.cpp" />
     <ClCompile Include="minPlayScene.cpp" />
     <ClCompile Include="minTitleScene.cpp" />
   </ItemGroup>

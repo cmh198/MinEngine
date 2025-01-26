@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <map>
-
+#include <cmath>
 #include "minMath.h"
 
 #include <mmsystem.h>
