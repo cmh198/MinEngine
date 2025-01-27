@@ -6,6 +6,7 @@
 
 #include "..\\MinEngine_SOURCE\\Apps\minApplication.h"
 #include "..\\MinEngine_Window\\minLoadScene.h"
+#include "..\\MinEngine_Window\\minLoadResources.h"
 
 min::Application app;
 
@@ -137,6 +138,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   min::LoadResources();
    min::LoadScenes();
 
    return TRUE;

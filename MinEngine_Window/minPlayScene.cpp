@@ -29,7 +29,6 @@ namespace min
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-			AddGameObject(bg, eLayerType::Player);
 		}
 		
 	}

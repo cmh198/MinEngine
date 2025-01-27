@@ -6,6 +6,7 @@
 #include <map>
 #include <cmath>
 #include "minMath.h"
+#include <assert.h>
 
 #include <mmsystem.h>
 #include <dinput.h>

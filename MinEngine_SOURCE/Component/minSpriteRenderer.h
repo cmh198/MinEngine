@@ -1,6 +1,7 @@
 #pragma once
 #include "../Entity/minEntity.h"
 #include "minComponent.h"
+#include "../Resource/minTexture.h"
 
 namespace min
 {
@@ -14,11 +15,11 @@ namespace min
 		void Update()  override;
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
-		void ImageLoad(const std::wstring& path);
 
+		void SetTexture(Texture* texture) { mTexture = texture; }
+		void SetSize(Vector2 size) { mSize = size; }
 	private:
-		Gdiplus::Image* mImgae;
-		UINT mWidth;
-		UINT mHeight;
+		Texture* mTexture;
+		Vector2 mSize;
 	};
 }

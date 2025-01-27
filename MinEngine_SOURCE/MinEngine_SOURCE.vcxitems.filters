@@ -20,6 +20,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\minLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\minLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Object\minObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\minTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="object">
@@ -55,5 +57,8 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{c9eb5b04-ce1f-4eb4-a92a-92fc0612b588}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE_LOGO.bmp" />
   </ItemGroup>
 </Project>

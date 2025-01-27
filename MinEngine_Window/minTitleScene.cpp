@@ -6,6 +6,8 @@
 #include "../MinEngine_SOURCE/Component/minSpriteRenderer.h"
 #include "../MinEngine_SOURCE/GameObject/minGameObject.h"
 #include "../MinEngine_SOURCE/Object/minObject.h"
+#include "../MinEngine_SOURCE/Resource/minResources.h"
+#include "../MinEngine_SOURCE/Resource/minTexture.h"
 
 namespace min
 {
@@ -19,12 +21,16 @@ namespace min
 	{
 		//Title Scene
 		{
-			GameObject* TitleBackground = Instantiate<GameObject>(this,eLayerType::BackGround,Vector2(800,450));
+			GameObject* TitleBackground = Instantiate<GameObject>(this,eLayerType::BackGround,Vector2(0,0));
 
 			SpriteRenderer* sr = TitleBackground->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			AddGameObject(TitleBackground,eLayerType::BackGround);
+			
+			Texture* title = Resources::Find<Texture>(L"Title");
+			sr->SetTexture(title);
+			sr->SetSize(Vector2(5, 4));
 		}
+
 	}
 	void TitleScene::Update()
 	{
