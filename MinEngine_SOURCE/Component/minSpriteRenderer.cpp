@@ -2,11 +2,12 @@
 #include "../GameObject/minGameObject.h"
 #include "minTransform.h"
 #include "../Resource/minTexture.h"
+#include "../Renderer/minRenderer.h"
 
 namespace min
 {
 	SpriteRenderer::SpriteRenderer() 
-		:Component()
+		:Component(eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
 	{
@@ -30,6 +31,8 @@ namespace min
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+
+		pos = renderer::mainCamera->CaculatePosition(pos);
 
 		if (mTexture->GetTextureType()
 			== Texture::eTextureType::Bmp)

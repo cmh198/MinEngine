@@ -3,6 +3,7 @@
 namespace min
 {
 	Transform::Transform()
+		:Component(eComponentType::Transform)
 	{
 	}
 	Transform::~Transform()

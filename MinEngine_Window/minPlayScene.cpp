@@ -8,6 +8,10 @@
 #include "../MinEngine_SOURCE/Component/minTransform.h"
 #include "../MinEngine_SOURCE/Object/minObject.h"
 #include "../MinEngine_SOURCE/Component/minSpriteRenderer.h"
+#include "Resource/minResources.h"
+#include "../MinEngine_Window/minPlayerScript.h"
+#include "Camera/minCamera.h"
+#include "Renderer/minRenderer.h"
 
 #include <vector>
 
@@ -23,13 +27,33 @@ namespace min
 
 	void PlayScene::Initialize()
 	{
-		//PlayScene
-		{
-			bg = Instantiate<Player>(this,eLayerType::Player, Vector2(500, 500));
+		// main camera
+		GameObject* camera = Instantiate<GameObject>(eLayerType::None, Vector2(344.0f, 442.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		//camera->AddComponent<PlayerScript>();
 
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-		}
+
+		mPlayer = Instantiate<Player>
+			(eLayerType::Player/*, Vector2(100.0f, 100.0f)*/);
+		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize(Vector2(3.0f, 3.0f));
+		mPlayer->AddComponent<PlayerScript>();
+
+		Texture* Player = Resources::Find<Texture>(L"Player_Right");
+		sr->SetTexture(Player);
+
+		GameObject* bg = Instantiate<GameObject>
+			(eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetSize(Vector2(3.0f, 3.0f));
+
+		Texture* bgTexture = Resources::Find<Texture>(L"Map");
+		bgSr->SetTexture(bgTexture);
+
+		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
+		Scene::Initialize();
 		
 	}
 	void PlayScene::Update()

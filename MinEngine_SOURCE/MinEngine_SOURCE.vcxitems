@@ -14,11 +14,13 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Camera\minCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Etc\Bullet.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Apps\minApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\minComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity\minEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\minGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\minLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\minMath.cpp" />
@@ -32,8 +34,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\minTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\minTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Etc\Terrain.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Script\minScript.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Camera\minCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Apps\minApplication.h" />
@@ -41,6 +45,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity\minEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\minGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\minTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\minLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minMath.h" />
@@ -55,8 +60,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\minTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Terrain.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Script\minScript.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_Stage1.png" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE.bmp" />
     <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE_LOGO.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_RIGHT.png" />
   </ItemGroup>
 </Project>

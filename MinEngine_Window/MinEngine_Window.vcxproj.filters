@@ -16,6 +16,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{a8626d1e-0c76-4ed4-83a1-be693c9169b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{26842fc1-1887-478f-a30a-ac495100e547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="minLoadResources.h">
@@ -33,6 +36,9 @@
     <ClInclude Include="assignmentScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="minPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="minPlayScene.cpp">
@@ -43,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="assignmentScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="minPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

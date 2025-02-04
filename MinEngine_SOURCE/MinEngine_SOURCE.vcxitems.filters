@@ -21,6 +21,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\minLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Camera\minCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Script\minScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
@@ -46,6 +49,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Object\minObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\minTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Camera\minCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Script\minScript.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="object">
@@ -60,5 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE_LOGO.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_RIGHT.png" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_Stage1.png" />
   </ItemGroup>
 </Project>

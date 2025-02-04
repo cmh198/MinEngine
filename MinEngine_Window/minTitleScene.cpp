@@ -20,7 +20,7 @@ namespace min
 	void TitleScene::Initialize()
 	{
 		//Title Scene
-		{
+		/*{
 			GameObject* TitleBackground = Instantiate<GameObject>(this,eLayerType::BackGround,Vector2(0,0));
 
 			SpriteRenderer* sr = TitleBackground->AddComponent<SpriteRenderer>();
@@ -29,7 +29,7 @@ namespace min
 			Texture* title = Resources::Find<Texture>(L"Title");
 			sr->SetTexture(title);
 			sr->SetSize(Vector2(5, 4));
-		}
+		}*/
 
 	}
 	void TitleScene::Update()

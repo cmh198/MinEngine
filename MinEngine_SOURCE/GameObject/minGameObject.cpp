@@ -5,6 +5,7 @@ namespace min
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)eComponentType::End);
 		InitializeTransform();
 	}
 	GameObject::~GameObject()
@@ -20,6 +21,8 @@ namespace min
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Initialize();
 		}
 	}
@@ -29,6 +32,9 @@ namespace min
 	{
 		for (Component* comp : mComponents)
 		{
+
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
 	}
@@ -37,6 +43,8 @@ namespace min
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 	}
@@ -45,6 +53,8 @@ namespace min
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Render(hdc);
 		}
 	}
