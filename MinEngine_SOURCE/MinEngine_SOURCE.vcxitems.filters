@@ -24,6 +24,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Camera\minCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Script\minScript.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
@@ -52,6 +54,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Camera\minCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Script\minScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="object">

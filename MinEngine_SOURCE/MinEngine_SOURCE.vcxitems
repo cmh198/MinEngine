@@ -14,6 +14,8 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Camera\minCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Etc\Bullet.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Apps\minApplication.cpp" />
@@ -37,6 +39,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Script\minScript.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Camera\minCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h" />

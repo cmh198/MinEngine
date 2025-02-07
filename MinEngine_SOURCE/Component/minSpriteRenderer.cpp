@@ -32,7 +32,7 @@ namespace min
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		pos = renderer::mainCamera->CaculatePosition(pos);
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType()
 			== Texture::eTextureType::Bmp)
