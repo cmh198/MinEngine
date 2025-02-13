@@ -7,6 +7,7 @@
 #include <cmath>
 #include "minMath.h"
 #include <assert.h>
+#include <iostream>
 
 #include <mmsystem.h>
 #include <dinput.h>

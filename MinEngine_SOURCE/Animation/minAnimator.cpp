@@ -56,6 +56,8 @@ namespace min
 			return;
 
 		animation = new Animation();
+		animation->SetSize(mSize);
+
 		animation->CreateAnimation(name, spriteSheet
 			, leftTop, size, offset, spriteLegth, duration);
 

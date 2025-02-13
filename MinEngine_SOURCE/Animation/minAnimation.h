@@ -45,7 +45,7 @@ namespace min
 
 		bool IsComplete() { return mbComplete; }
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
-
+		void SetSize(Vector2 size) { mSize = size; }
 	private:
 		class Animator* mAnimator;
 		Texture* mTexture;
@@ -54,5 +54,7 @@ namespace min
 		int mIndex;
 		float mTime;
 		bool mbComplete;
+
+		Vector2 mSize = Vector2::One;
 	};
 }

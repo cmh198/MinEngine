@@ -15,8 +15,8 @@ namespace min
 
         // 상대 경로 예시: "..\\Resources\\image.bmp"
         std::wstring relativePath_Title = L"..\\..\\minEngine_SOURCE\\MyResource\\BG\\BG_TITLE_LOGO.bmp";
-        std::wstring relativePath_MAP = L"..\\..\\minEngine_SOURCE\\MyResource\\BG\\BG_Stage1.png";
-        std::wstring relativePath_PlayerRight = L"..\\..\\minEngine_SOURCE\\MyResource\\PLAYER\\x_right.bmp";
+        std::wstring relativePath_MAP = L"..\\..\\minEngine_SOURCE\\MyResource\\ver1\\BackGround\\normal_map.bmp";
+        std::wstring relativePath_PlayerRight = L"..\\..\\minEngine_SOURCE\\MyResource\\ver1\\Object\\x_move.bmp";
 
         std::wstring Path_Title = exeDir + relativePath_Title;
         std::wstring Path_MAP = exeDir + relativePath_MAP;

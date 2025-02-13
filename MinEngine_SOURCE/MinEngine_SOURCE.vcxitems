@@ -70,6 +70,14 @@
     <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_Stage1.png" />
     <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE.bmp" />
     <Image Include="$(MSBuildThisFileDirectory)MyResource\BG\BG_TITLE_LOGO.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\EFFECT_X_LEFT_DASH.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\EFFECT_X_RIGHT_DASH.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\x_left.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_LEFT.png" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_RF_LEFT.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_RF_RIGHT.bmp" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\x_right.bmp" />
     <Image Include="$(MSBuildThisFileDirectory)MyResource\PLAYER\X_RIGHT.png" />
+    <Image Include="$(MSBuildThisFileDirectory)MyResource\Ready.png" />
   </ItemGroup>
 </Project>

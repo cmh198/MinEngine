@@ -12,7 +12,7 @@
 #include "../MinEngine_Window/minPlayerScript.h"
 #include "Camera/minCamera.h"
 #include "Renderer/minRenderer.h"
-
+#include "../MinEngine_SOURCE/Animation/minAnimator.h"
 #include <vector>
 
 namespace min
@@ -28,21 +28,23 @@ namespace min
 	void PlayScene::Initialize()
 	{
 		// main camera
-		GameObject* camera = Instantiate<GameObject>(eLayerType::None, Vector2(344.0f, 442.0f));
+		GameObject* camera = Instantiate<GameObject>(eLayerType::None, Vector2(1000.0f, 400.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		//camera->AddComponent<PlayerScript>();
 
-
-
 		mPlayer = Instantiate<Player>
-			(eLayerType::Player/*, Vector2(100.0f, 100.0f)*/);
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.0f, 3.0f));
+			(eLayerType::Player,Vector2(200.0f,500.0f));
 		mPlayer->AddComponent<PlayerScript>();
 
 		Texture* Player = Resources::Find<Texture>(L"Player_Right");
-		sr->SetTexture(Player);
+
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->SetSize(Vector2(2.0f, 2.0f));
+
+		animator->CreateAnimation(L"PlayerRight", Player
+			, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.5f);
+		animator->PlayAnimation(L"PlayerRight", true);
 
 		GameObject* bg = Instantiate<GameObject>
 			(eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);

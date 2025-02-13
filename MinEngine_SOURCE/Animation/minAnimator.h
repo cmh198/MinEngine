@@ -26,11 +26,12 @@ namespace min
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
-
+		void SetSize(Vector2 size) { mSize = size; }
 		//PlayAnimation(L"move", false);
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
 		bool mbLoop;
+		Vector2 mSize = Vector2::One;
 	};
 }

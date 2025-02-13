@@ -65,12 +65,12 @@ namespace min
         func.BlendOp = AC_SRC_OVER;
         func.BlendFlags = 0;
         func.AlphaFormat = AC_SRC_ALPHA;
-        func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(Opaque)
+        func.SourceConstantAlpha = 128; // 0(transparent) ~ 255(Opaque)
 
         Sprite sprite = mAnimationSheet[mIndex];
         HDC imgHdc = mTexture->GetHdc();
 
-        AlphaBlend(hdc
+        /*AlphaBlend(hdc
             , pos.x, pos.y
             , sprite.size.x * 5
             , sprite.size.y * 5
@@ -79,7 +79,33 @@ namespace min
             , sprite.leftTop.y
             , sprite.size.x
             , sprite.size.y
-            , func);
+            , func);*/
+        //TransparentBlt(hdc,
+        //    pos.x, pos.y,
+        //    sprite.size.x, sprite.size.y,  // 출력할 크기
+        //    imgHdc,
+        //    sprite.leftTop.x, sprite.leftTop.y,
+        //    sprite.size.x, sprite.size.y,  // 원본에서 가져올 크기
+        //    RGB(255, 0, 255));  // 마젠타 색을 투명 처리
+
+        if (mTexture->GetTextureType()
+            == Texture::eTextureType::Bmp)
+        {
+            TransparentBlt(hdc, pos.x, pos.y
+                , sprite.size.x * mSize.x, sprite.size.y * mSize.y
+                , imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y
+                , RGB(255, 0, 255));
+        }
+        else if (mTexture->GetTextureType()
+            == Texture::eTextureType::Png)
+        {
+            Gdiplus::Graphics graphcis(hdc);
+            graphcis.DrawImage(mTexture->GetImage()
+                , Gdiplus::Rect(pos.x, pos.y
+                    , sprite.size.x * mSize.x, sprite.size.y * mSize.y));
+        }
+
+
     }
 
     void Animation::CreateAnimation(const std::wstring& name, Texture* spriteSheet
