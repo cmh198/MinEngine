@@ -22,8 +22,8 @@ namespace min
 			, Vector2 size
 			, Vector2 offset
 			, UINT spriteLegth
-			, float duration);
-
+			, float duration,bool reverse = false);
+		
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
 		void SetSize(Vector2 size) { mSize = size; }

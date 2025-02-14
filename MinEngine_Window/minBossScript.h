@@ -1,22 +1,17 @@
 #pragma once
 #include "../MinEngine_SOURCE/Script/minScript.h"
+#include "../MinEngine_SOURCE/Component/minTransform.h"
 
 
 namespace min
 {
-	class PlayerScript : public Script
+	class BossScript : public Script
 	{
 	public:
 		enum class eState
 		{
 			Idle,
-			Walk,
-			Run,
-			Jump,
-			Slide,
-			Shoot,
-			Charge,
-			Hang,
+			Attack,
 			Die,
 		};
 
@@ -24,27 +19,31 @@ namespace min
 		{
 			LEFT,
 			RIGHT,
-			DOWN,
-			UP,
-			END,
 		};
 
-		PlayerScript();
-		~PlayerScript();
+		BossScript();
+		~BossScript();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-		void PlayAnimationByDirection();
 
 	private:
-		void jump();
-		void move();
+		void Idle();
+		void Slash();
+		void Attack();
+		void Die();
+		void FadeOut();
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
+		eDirection mDirection;
+		float mTime;
+		float mAttackTime;
+
+		bool isAttacking = false;
 
 	};
 }

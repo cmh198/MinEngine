@@ -33,6 +33,7 @@ namespace min
 
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
+			mBitPixels = info.bmBitsPixel;
 
 			HDC mainDC = app.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);

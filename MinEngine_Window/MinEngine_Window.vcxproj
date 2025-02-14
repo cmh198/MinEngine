@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="assignmentScene.h" />
+    <ClInclude Include="minBossScript.h" />
     <ClInclude Include="minLoadResources.h" />
     <ClInclude Include="minLoadScene.h" />
     <ClInclude Include="minPlayerScript.h" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assignmentScene.cpp" />
+    <ClCompile Include="minBossScript.cpp" />
     <ClCompile Include="minPlayerScript.cpp" />
     <ClCompile Include="minPlayScene.cpp" />
     <ClCompile Include="minTitleScene.cpp" />

@@ -16,11 +16,11 @@ namespace min
 
 	}
 
-	void min::Animator::Initialize()
+	void Animator::Initialize()
 	{
 	}
 
-	void min::Animator::Update()
+	void Animator::Update()
 	{
 		if (mActiveAnimation)
 		{
@@ -34,11 +34,11 @@ namespace min
 		}
 	}
 
-	void min::Animator::LateUpdate()
+	void Animator::LateUpdate()
 	{
 	}
 
-	void min::Animator::Render(HDC hdc)
+	void Animator::Render(HDC hdc)
 	{
 		if (mActiveAnimation)
 			mActiveAnimation->Render(hdc);
@@ -48,7 +48,7 @@ namespace min
 		, Texture* spriteSheet
 		, Vector2 leftTop
 		, Vector2 size, Vector2 offset
-		, UINT spriteLegth, float duration)
+		, UINT spriteLegth, float duration, bool reverse)
 	{
 		Animation* animation = nullptr;
 		animation = FindAnimation(name);
@@ -59,7 +59,7 @@ namespace min
 		animation->SetSize(mSize);
 
 		animation->CreateAnimation(name, spriteSheet
-			, leftTop, size, offset, spriteLegth, duration);
+			, leftTop, size, offset, spriteLegth, duration, reverse);
 
 		animation->SetAnimator(this);
 

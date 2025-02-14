@@ -13,6 +13,7 @@ namespace min
 			None,
 		};
 
+
 		Texture();
 		~Texture();
 
@@ -20,9 +21,11 @@ namespace min
 
 		UINT GetWidth() { return mWidth; }
 		UINT GetHeight() { return mHeight; }
+		UINT GetBitPixel() { return mBitPixels; }
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return mType; }
 		Gdiplus::Image* GetImage() { return mImage; }
+
 
 	private:
 		eTextureType mType;
@@ -32,5 +35,6 @@ namespace min
 
 		UINT mWidth;
 		UINT mHeight;
+		UINT mBitPixels;
 	};
 }

@@ -16,8 +16,9 @@ namespace min
 		None,
 		BackGround,
 		//Tree 
-		//character
+		Enemy,
 		Player,
+		Particle,
 		Max = 16,
 	};
 
