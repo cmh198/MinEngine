@@ -31,7 +31,7 @@ namespace min
 	{
 		// main camera
 		{
-			GameObject* camera = Instantiate<GameObject>(eLayerType::None, Vector2(1000.0f, 400.0f));
+			GameObject* camera = Instantiate<GameObject>(eLayerType::None, Vector2(1000.0f, 450.0f));
 			Camera* cameraComp = camera->AddComponent<Camera>();
 			renderer::mainCamera = cameraComp;
 			//camera->AddComponent<PlayerScript>();
@@ -50,14 +50,14 @@ namespace min
 			Animator* playerAnim = mPlayer->AddComponent<Animator>();
 			playerAnim->SetSize(Vector2(2.0f, 2.0f));
 
-			playerAnim->CreateAnimation(L"Player_Right_Idle", playerTexture, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.5f);
-			playerAnim->CreateAnimation(L"Player_Left_Idle", playerTexture, Vector2(0.0f, 128.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.5f);
+			playerAnim->CreateAnimation(L"Player_Right_Idle", playerTexture, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f);
+			playerAnim->CreateAnimation(L"Player_Left_Idle", playerTexture, Vector2(0.0f, 128.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f);
 			playerAnim->CreateAnimation(L"Player_Right_Run", playerTexture, Vector2(0.0f, 128.0f * 2), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f);
-			playerAnim->CreateAnimation(L"Player_Left_Run", playerTexture, Vector2(0.0f, 128.0f * 3), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f);
+			playerAnim->CreateAnimation(L"Player_Left_Run", playerTexture, Vector2(0.0f, 128.0f * 3), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f,true);
 			playerAnim->CreateAnimation(L"Player_Right_Slide", playerTexture, Vector2(0.0f, 128.0f * 4), Vector2(128.0f, 128.0f), Vector2::Zero, 10, 0.03f);
 			playerAnim->CreateAnimation(L"Player_Left_Slide", playerTexture, Vector2(0.0f, 128.0f * 5), Vector2(128.0f, 128.0f), Vector2::Zero, 10, 0.03f);
 			playerAnim->CreateAnimation(L"Player_Right_Jump", playerTexture, Vector2(0.0f, 128.0f * 6), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
-			playerAnim->CreateAnimation(L"Player_Left_Jump", playerTexture, Vector2(0.0f, 128.0f * 7), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
+			playerAnim->CreateAnimation(L"Player_Left_Jump", playerTexture, Vector2(0.0f, 128.0f * 7), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f,true);
 			playerAnim->CreateAnimation(L"Player_Right_Hang", playerTexture, Vector2(0.0f, 128.0f * 8), Vector2(128.0f, 128.0f), Vector2::Zero, 6, 0.1f);
 			playerAnim->CreateAnimation(L"Player_Left_Hang", playerTexture, Vector2(0.0f, 128.0f * 9), Vector2(128.0f, 128.0f), Vector2::Zero, 6, 0.1f);
 			playerAnim->CreateAnimation(L"Player_Right_Die", playerTexture, Vector2(0.0f, 128.0f * 10), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.1f);
@@ -91,7 +91,7 @@ namespace min
 			GameObject* bg = Instantiate<GameObject>
 				(eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);
 			SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-			bgSr->SetSize(Vector2(3.0f, 3.0f));
+			bgSr->SetSize(Vector2(2.f, 2.f));
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Map");
 			bgSr->SetTexture(bgTexture);

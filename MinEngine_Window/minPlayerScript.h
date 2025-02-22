@@ -10,7 +10,6 @@ namespace min
 		enum class eState
 		{
 			Idle,
-			Walk,
 			Run,
 			Jump,
 			Slide,
@@ -24,9 +23,6 @@ namespace min
 		{
 			LEFT,
 			RIGHT,
-			DOWN,
-			UP,
-			END,
 		};
 
 		PlayerScript();
@@ -36,15 +32,26 @@ namespace min
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-		void PlayAnimationByDirection();
+		void PlayAnimationByDirection(eDirection dir);
+		void ApplyGravity();
 
 	private:
 		void jump();
-		void move();
+		void run();
+		void idle();
+		void slide();
+		void ChangeState(eState newState);
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
+		eDirection curDirection;
+
+		bool isJump = false;
+		bool isOnGround = false;
+
+		int jumpCnt;
+		float mTimer;
 
 	};
 }
