@@ -40,7 +40,7 @@ namespace min
 		// Player
 		{
 			mPlayer = Instantiate<Player>
-				(eLayerType::Player, Vector2(200.0f, 500.0f));
+				(eLayerType::Player, Vector2(500.0f, 400.0f));
 			mPlayer->AddComponent<PlayerScript>();
 			mPlayer->GetComponent<Transform>()->SetSpeed(200.0f);
 			mPlayer->GetComponent<Transform>()->SetAcceleration(Vector2(50000.0f, 5000.0f));
@@ -48,12 +48,12 @@ namespace min
 			Texture* playerTexture = Resources::Find<Texture>(L"Player");
 
 			Animator* playerAnim = mPlayer->AddComponent<Animator>();
-			playerAnim->SetSize(Vector2(2.0f, 2.0f));
+			playerAnim->SetSize(Vector2(3.0f, 3.0f));
 
 			playerAnim->CreateAnimation(L"Player_Right_Idle", playerTexture, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f);
 			playerAnim->CreateAnimation(L"Player_Left_Idle", playerTexture, Vector2(0.0f, 128.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f);
 			playerAnim->CreateAnimation(L"Player_Right_Run", playerTexture, Vector2(0.0f, 128.0f * 2), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f);
-			playerAnim->CreateAnimation(L"Player_Left_Run", playerTexture, Vector2(0.0f, 128.0f * 3), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f,true);
+			playerAnim->CreateAnimation(L"Player_Left_Run", playerTexture, Vector2(0.0f, 128.0f * 3), Vector2(128.0f, 128.0f), Vector2::Zero, 14, 0.05f);
 			playerAnim->CreateAnimation(L"Player_Right_Slide", playerTexture, Vector2(0.0f, 128.0f * 4), Vector2(128.0f, 128.0f), Vector2::Zero, 10, 0.03f);
 			playerAnim->CreateAnimation(L"Player_Left_Slide", playerTexture, Vector2(0.0f, 128.0f * 5), Vector2(128.0f, 128.0f), Vector2::Zero, 10, 0.03f);
 			playerAnim->CreateAnimation(L"Player_Right_Jump", playerTexture, Vector2(0.0f, 128.0f * 6), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
@@ -66,7 +66,7 @@ namespace min
 			playerAnim->PlayAnimation(L"Player_Right_Idle", true);
 		}
 
-		Boss* boss = Instantiate<Boss>(eLayerType::Enemy, Vector2(1500, 500));
+		Boss* boss = Instantiate<Boss>(eLayerType::Enemy, Vector2(1000, 500));
 		boss->AddComponent<BossScript>();
 
 		Texture* boss_Idle = Resources::Find<Texture>(L"Boss_Idle");
@@ -89,9 +89,9 @@ namespace min
 
 		{
 			GameObject* bg = Instantiate<GameObject>
-				(eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);
+				(eLayerType::BackGround, Vector2(0.0f, 75.0f));
 			SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-			bgSr->SetSize(Vector2(2.f, 2.f));
+			bgSr->SetSize(Vector2(3.f, 3.f));
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Map");
 			bgSr->SetTexture(bgTexture);

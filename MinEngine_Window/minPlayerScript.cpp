@@ -83,9 +83,9 @@ namespace min
 			velocity.y += 400.0f * Time::DeltaTime();
 			pos.y += velocity.y;
 
-			if (pos.y > 699.0f)
+			if (pos.y > 599.0f)
 			{
-				pos.y = 700.0f;
+				pos.y = 600.0f;
 				velocity.y = 0.f;
 				isOnGround = true;
 				jumpCnt = 1;
@@ -147,9 +147,9 @@ namespace min
 		}
 		
 
-		if (pos.y > 699.0f)
+		if (pos.y > 599.0f)
 		{
-			pos.y = 700.0f;
+			pos.y = 600.0f;
 			velocity.y = 0.f;
 			isOnGround = true;
 			jumpCnt = 1;
