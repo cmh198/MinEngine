@@ -2,6 +2,7 @@
 #include "../Input/minInput.h"
 #include "../Common/minTime.h"
 #include "../Scene/minSceneManager.h"
+#include "../Resource/minResources.h"
 
 namespace min
 {
@@ -29,6 +30,8 @@ namespace min
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 
 	void Application::Update()
@@ -54,6 +57,16 @@ namespace min
 		//// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
 		copyRenderTarget(mBackHdc, mHdc);
 
+	}
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	

@@ -27,6 +27,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Animation\minAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Boss\minBoss.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Object\minDestroy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Etc\Bullet.h" />
@@ -58,6 +59,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Animation\minAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Boss\minBoss.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object\minDestroy.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="object">

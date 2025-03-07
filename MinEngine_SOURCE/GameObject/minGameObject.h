@@ -2,12 +2,25 @@
 #include "../Common/CommonInclude.h"
 #include "../Component/minComponent.h"
 
+namespace min::object
+{
+	void Destroy(GameObject* gameObject);
+}
 
 namespace min
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destroy(GameObject* obj);
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -41,6 +54,15 @@ namespace min
 			return component;
 		}
 
+		eState GetState() { return mState; }
+		void SetActive(bool power)
+		{
+			if (power == true) mState = eState::Active;
+			if (power == false) mState = eState::Paused;
+		}
+		bool IsActive() { return mState == eState::Active; }
+		void Death() { mState = eState::Dead; }
+		bool IsDead() { return mState == eState::Dead; }
 		bool getDestroyed() { return bDestroyed; }
 	protected:
 		float mX=0,mY=0;
@@ -49,6 +71,7 @@ namespace min
 	private:
 		void InitializeTransform();
 	private:
+		eState mState;
 		std::vector<Component*> mComponents;
 	};
 }

@@ -8,7 +8,11 @@ namespace min
 	}
 	Scene::~Scene()
 	{
-
+		for (Layer* layer : mLayers)
+		{
+			delete layer;
+			layer = nullptr;
+		}
 	}
 
 	void Scene::Initialize()
@@ -56,7 +60,16 @@ namespace min
 		}
 		
 	}
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
 
+			layer->Destroy();
+		}
+	}
 	void Scene::AddGameObject(GameObject* gameObject, const eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObject);

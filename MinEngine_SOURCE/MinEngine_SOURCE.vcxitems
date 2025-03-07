@@ -23,6 +23,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity\minEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Boss\minBoss.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\minGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Object\minDestroy.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\minTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\minLayer.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\minEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Boss\minBoss.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\minGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object\minDestroy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\minRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\minTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\minLayer.h" />

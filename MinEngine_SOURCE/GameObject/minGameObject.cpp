@@ -1,9 +1,19 @@
 #include "minGameObject.h"
 #include "../Component/minTransform.h"
 
+namespace min::object
+{
+	void Destory(GameObject* gameObject)
+	{
+		if (gameObject != nullptr)
+			gameObject->Death();
+	}
+}
+
 namespace min
 {
 	GameObject::GameObject()
+		:mState(eState::Active)
 	{
 		mComponents.resize((UINT)eComponentType::End);
 		InitializeTransform();
@@ -12,6 +22,8 @@ namespace min
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			delete comp;
 			comp = nullptr;
 		}

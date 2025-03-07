@@ -1,8 +1,9 @@
 #pragma once
-
+#include <cmath>
 
 namespace min
 {
+#define PI 3.141592f
 	struct Vector2
 	{
 		static Vector2 One;
@@ -39,7 +40,45 @@ namespace min
 		{
 			return Vector2(x / value, y / value);
 		}
+		void clear()
+		{
+			x = 0.0f;
+			y = 0.0f;
+		}
 
+		float length()
+		{
+			return sqrtf(x * x + y * y);
+		}
 
+		Vector2 normalize()
+		{
+			float len = length();
+			x /= len;
+			y /= len;
+
+			return *this;
+		}
+		static Vector2 Rotate(Vector2 vector, float degree)
+		{
+			float radian = (degree / 180.f) * PI;
+			vector.normalize();
+			float x = cosf(radian) * vector.x - sinf(radian) * vector.y;
+			float y = sinf(radian) * vector.x + cosf(radian) * vector.y;
+
+			return Vector2(x, y);
+		}
+
+		static float Dot(Vector2& v1, Vector2 v2)
+		{
+			return v1.x * v2.x + v1.y * v2.y;
+		}
+
+		static float Cross(Vector2 v1, Vector2 v2)
+		{
+			return v1.x * v2.y - v1.y * v2.x;
+		}
 	};
+
+	
 }

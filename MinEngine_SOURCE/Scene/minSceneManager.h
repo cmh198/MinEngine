@@ -30,6 +30,8 @@ namespace min
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+		static void Destroy();
+		static void Release();
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;
